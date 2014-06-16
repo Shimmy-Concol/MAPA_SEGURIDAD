@@ -1,0 +1,10 @@
+{ 
+"exposed" : true,
+"authentication" : null,
+"anonymous_connection":"seguridad.map.map.UI::Anonymous_Access",
+"rewrite_rules" : 
+ [{ 
+ "source" : "/mapa", 
+ "target" : "/index.html" 
+ }] 
+}

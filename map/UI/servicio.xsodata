@@ -1,0 +1,11 @@
+service namespace "servicios.mapa.seguridad" {
+	"_SYS_BIC"."seguridad/CA_DASHBOARD" as "coordenadas" keys generate local "id_coor";
+	"SEGURIDAD"."TELEFONOS" as "phonenumber" keys generate local "id_phone";
+	"SEGURIDAD"."BUSCADOR" as "buscador" keys generate local "id_buscar";
+	"SEGURIDAD"."INFO" as "info" keys generate local "id_info";
+	"SEGURIDAD"."ANALISIS" as "riesgo" keys generate local "id_riesgo";
+	"_SYS_BIC"."seguridad/AN_ANALISISDELLAMADAS" as "analisis" keys generate local "id_key" aggregates always  (SUM of "COUNTER");
+	"SEGURIDAD"."LLAMADAS_TXT" as "textos" keys generate local "id_textcall";
+	"seguridad::CA_REL_TEL_SHORT" as "relacion" keys generate local "id_relacion" aggregates always (SUM of "FUERZA") parameters via entity "in_rel";
+	"seguridad::CA_CIRCULAR" as "circular" keys generate local "id_circular" aggregates always parameters via entity "input";
+}
